@@ -8,9 +8,10 @@ using UnityEngine.WSA;
 [Serializable]
 public enum GameState
 {
-    Starting = 0,
-    Paused = 1,
-    Playing = 2,
+    None = 0,
+    Starting = 1,
+    Paused = 2,
+    Playing = 3,
     Win = 5,
     Lose = 6,
 }
@@ -22,7 +23,7 @@ public enum GameState
 public class GameManager : StaticInstance<GameManager> {
     public static event Action<GameState> OnBeforeStateChanged;
     public static event Action<GameState> OnAfterStateChanged;
-    public static GameState lastGameState = GameState.Starting;
+    public static GameState lastGameState = GameState.None;
     public string winText;
     public GameState State { get; private set; }
     /// <summary>
@@ -31,9 +32,13 @@ public class GameManager : StaticInstance<GameManager> {
     [SerializedDictionary("Can't change from this State", "To these States")]
     [SerializeField] private SerializedDictionary<GameState,List<GameState>> ForbidenStateTransitions;
     // Kick the game off with the first state
-    void Start() => ChangeState(GameState.Starting);
+    void Start()
+    {
+        ChangeState(GameState.Starting);
+    }
 
-    public void ChangeState(GameState newState) {
+    public void ChangeState(GameState newState) 
+    {
         if (isValidTransition(State,newState)==false) return;
 
         lastGameState = State;
@@ -88,6 +93,14 @@ public class GameManager : StaticInstance<GameManager> {
         ScoreMenu.Instance.SetText("You Died", "Try Again?");
         ScoreMenu.Instance.SetColor(new Color(1, 0.5f, 0.5f, 0.5f));
 
+    }
+
+    private void Update()
+    {
+        if (State == GameState.Playing && Input.GetKeyDown(KeyCode.Space))
+        {
+            AudioSystem.Instance.PlaySFX("changebutton");
+        }
     }
 }
 
