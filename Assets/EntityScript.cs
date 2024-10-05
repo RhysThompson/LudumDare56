@@ -37,7 +37,7 @@ public class EntityScript : MonoBehaviour
 
     public virtual void Move()
     {
-        RB.MovePosition(this.transform.position + new Vector3(MoveSpeed * Time.fixedDeltaTime, RB.velocity.y, 0));
+        RB.MovePosition(this.transform.position + new Vector3(MoveSpeed * Time.fixedDeltaTime, 0, 0));
     }
 
     public virtual bool CanGrow()
@@ -75,7 +75,8 @@ public class EntityScript : MonoBehaviour
     public void Die()
     {
         deathParticles = GetComponentInChildren<ParticleSystem>();
-        deathParticles.Play();
-        GetComponent<MeshRenderer>().enabled = false;
+        if(deathParticles.isPlaying == false)
+            deathParticles.Play();
+        GetComponentInChildren<MeshRenderer>().enabled = false;
     }
 }

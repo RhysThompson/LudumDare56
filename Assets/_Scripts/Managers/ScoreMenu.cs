@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-public class ScoreMenu : SingletonMenu<ScoreMenu>
+public class ScoreMenu : Menu
 {
     public Text MainText;
     public Text SubText;

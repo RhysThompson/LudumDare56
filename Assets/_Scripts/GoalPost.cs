@@ -1,8 +1,9 @@
+using System.Collections;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class GoalPost : MonoBehaviour
 {
-    private int animalsInLevel = 2;
+    public static int animalsInLevel = 2;
     private ParticleSystem particleEffect;
     private TMPro.TMP_Text numberDisplay;
 
@@ -27,5 +28,10 @@ public class GoalPost : MonoBehaviour
                 GameManager.Instance.ChangeState(GameState.Win);
             }
         }
+    }
+    private IEnumerator WinAfterDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        GameManager.Instance.ChangeState(GameState.Win);
     }
 }
