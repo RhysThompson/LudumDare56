@@ -11,6 +11,7 @@ public class EntityScript : MonoBehaviour
     public float MoveSpeed = 10f;
     
     private Rigidbody RB;
+    private ParticleSystem deathParticles;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,5 +71,11 @@ public class EntityScript : MonoBehaviour
                 this.transform.localScale = Vector3.MoveTowards(this.transform.localScale, SmallSize, SizeChangeSpeed);
             }
         }
+    }
+    public void Die()
+    {
+        deathParticles = GetComponentInChildren<ParticleSystem>();
+        deathParticles.Play();
+        GetComponent<MeshRenderer>().enabled = false;
     }
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - pauseMenu
   - bridge
+  - turtle
+  - animal
   layers:
   - Default
   - TransparentFX

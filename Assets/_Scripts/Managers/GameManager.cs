@@ -23,6 +23,7 @@ public class GameManager : StaticInstance<GameManager> {
     public static event Action<GameState> OnBeforeStateChanged;
     public static event Action<GameState> OnAfterStateChanged;
     public static GameState lastGameState = GameState.Starting;
+    public string winText;
     public GameState State { get; private set; }
     /// <summary>
     /// Stops all state changes from the first state to any of the listed states. OnBeforeStateChanged will not be called.
@@ -73,11 +74,11 @@ public class GameManager : StaticInstance<GameManager> {
         // Do some start setup, could be environment, cinematics etc
 
         // Eventually call ChangeState again with your next state
-        
+        ChangeState(GameState.Playing);
     }
     private void HandleWin() {
         ScoreMenu.Instance.Open();
-        ScoreMenu.Instance.SetText("You Win!", "");
+        ScoreMenu.Instance.SetText("You Win!", winText);
         PauseMenuManager.Instance.PauseWithoutMenu();
     }
     private void HandleLose()
