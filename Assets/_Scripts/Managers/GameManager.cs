@@ -24,6 +24,8 @@ public class GameManager : StaticInstance<GameManager> {
     public static event Action<GameState> OnAfterStateChanged;
     public static GameState lastGameState = GameState.Starting;
     public string winText;
+    public ScoreMenu WinScreen;
+    public ScoreMenu LoseScreen;
     public GameState State { get; private set; }
     /// <summary>
     /// Stops all state changes from the first state to any of the listed states. OnBeforeStateChanged will not be called.
@@ -77,17 +79,15 @@ public class GameManager : StaticInstance<GameManager> {
         ChangeState(GameState.Playing);
     }
     private void HandleWin() {
-        ScoreMenu.Instance.Open();
-        ScoreMenu.Instance.SetText("You Win!", winText);
+        WinScreen.Open();
+        WinScreen.SetText("You Win!", winText);
         PauseMenuManager.Instance.PauseWithoutMenu();
     }
     private void HandleLose()
     {
         PauseMenuManager.Instance.PauseWithoutMenu();
-        ScoreMenu.Instance.Open();
-        ScoreMenu.Instance.SetText("You Died", "Try Again?");
-        ScoreMenu.Instance.SetColor(new Color(1, 0.5f, 0.5f, 0.5f));
-
+        LoseScreen.Open();
+        LoseScreen.SetColor(new Color(1, 0.5f, 0.5f, 0.5f));
     }
 }
 

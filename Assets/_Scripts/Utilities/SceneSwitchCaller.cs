@@ -16,4 +16,8 @@ public class SceneSwitchCaller : MonoBehaviour
     {
         SceneSwitcher.Instance.ReturnToMenu();
     }
+    public void NextScene()
+    {
+        SceneSwitcher.Instance.NextScene();
+    }
 }
