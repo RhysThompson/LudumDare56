@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 public class SceneSwitcher : Singleton<SceneSwitcher>
 {
-    public static bool optsWithPause = false;
     private Animator transitionAnim;
     public List<RuntimeAnimatorController> transitionAnimations = new List<RuntimeAnimatorController>();
     public void Start()
@@ -21,6 +20,11 @@ public class SceneSwitcher : Singleton<SceneSwitcher>
         StartCoroutine(LoadLevel(sceneName));
         }
         //optsWithPause = false;
+    }
+    //used to change scene with a button
+    public void ChangeSceneButton(string sceneName)
+    {
+       ChangeScene(sceneName);
     }
     IEnumerator LoadLevel(string sceneName)
     {
