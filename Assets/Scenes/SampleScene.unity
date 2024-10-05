@@ -790,7 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743321443ff911e4689c5e67cc8a2bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBig: 1
+  IsBig: 0
   BigSize: {x: 2, y: 0.8, z: 1}
   SmallSize: {x: 1, y: 0.3, z: 0.4}
   SizeChangeSpeed: 0.1
