@@ -7,8 +7,7 @@ public class Spring : MonoBehaviour
     {
         if (collision.gameObject.tag == "animal")
         {
-            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(Vector3.up * SpringForce, ForceMode.Impulse);
+            collision.gameObject.GetComponent<EntityScript>().Launch(SpringForce);
         }
     }
 }

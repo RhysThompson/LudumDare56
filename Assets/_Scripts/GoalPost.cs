@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
+[SelectionBase]
 public class GoalPost : MonoBehaviour
 {
     public static int animalsInLevel = 2;
@@ -31,7 +32,7 @@ public class GoalPost : MonoBehaviour
     }
     private IEnumerator WinAfterDelay()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         GameManager.Instance.ChangeState(GameState.Win);
     }
 }

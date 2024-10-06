@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.WSA;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public enum GameState
@@ -27,6 +28,7 @@ public class GameManager : StaticInstance<GameManager> {
     public string winText;
     public ScoreMenu WinScreen;
     public ScoreMenu LoseScreen;
+    public string NextLevel = "";
     public GameState State { get; private set; }
     /// <summary>
     /// Stops all state changes from the first state to any of the listed states. OnBeforeStateChanged will not be called.
@@ -77,22 +79,32 @@ public class GameManager : StaticInstance<GameManager> {
     }
     ///automatically resumes game when exiting the pause GameState
     
-    private void HandleStarting() {
+    private void HandleStarting() 
+    {
         // Do some start setup, could be environment, cinematics etc
 
         // Eventually call ChangeState again with your next state
         ChangeState(GameState.Playing);
     }
-    private void HandleWin() {
-        WinScreen.Open();
-        WinScreen.SetText("You Win!", winText);
+    private void HandleWin() 
+    {
+        if (NextLevel.CompareTo("") != 0)
+        {
+            SceneManager.LoadScene(NextLevel);
+            return;
+        }
+
+        //WinScreen.Open();
+        //WinScreen.SetText("You Win!", winText);
         PauseMenuManager.Instance.PauseWithoutMenu();
     }
     private void HandleLose()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().path);
+
         PauseMenuManager.Instance.PauseWithoutMenu();
-        LoseScreen.Open();
-        LoseScreen.SetColor(new Color(1, 0.5f, 0.5f, 0.5f));
+        //LoseScreen.Open();
+        //LoseScreen.SetColor(new Color(1, 0.5f, 0.5f, 0.5f));
     }
 
     private void Update()
