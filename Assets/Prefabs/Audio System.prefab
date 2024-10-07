@@ -58,6 +58,10 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: 1e66a793dcee0094c9e6146325e0e358, type: 3}
     - Key: button
       Value: {fileID: 8300000, guid: 8c3bb00127444c243b4fd6ea295a7d6f, type: 3}
+    - Key: changebutton
+      Value: {fileID: 8300000, guid: 5e4118724a803984d9c0f1730cff5785, type: 3}
+    - Key: spring
+      Value: {fileID: 8300000, guid: 096f2db36d387f149bf83aff2f7cad11, type: 3}
   _musicSource: {fileID: 3504075123384052159}
   _soundsSource: {fileID: 3504075122170500488}
   audioMixer: {fileID: 24100000, guid: de446f5b2da753d49a456698598b24ba, type: 2}
@@ -73,6 +77,16 @@ MonoBehaviour:
     - Key: Level1-2
       Value: ExampleSong
     - Key: Level1-3
+      Value: ExampleSong
+    - Key: Level1-4
+      Value: ExampleSong
+    - Key: Level1-5
+      Value: ExampleSong
+    - Key: Level1-6
+      Value: ExampleSong
+    - Key: Level2-1
+      Value: ExampleSong
+    - Key: Level2-2
       Value: ExampleSong
 --- !u!1 &3504075122170500486
 GameObject:

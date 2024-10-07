@@ -21,12 +21,15 @@ public class GoalPost : MonoBehaviour
     {
         if (collision.gameObject.tag == "animal")
         {
-            collision.gameObject.SetActive(false);
-            GameManager.Instance.RegisterAnimal(-1);
             ParticleEffect.Play();
             AnimalsNeeded--;
-            NumberDisplay.text = AnimalsNeeded.ToString();
+            if (AnimalsNeeded == 0)
+                NumberDisplay.text = "W";
+            else
+                NumberDisplay.text = AnimalsNeeded.ToString();
+            collision.gameObject.SetActive(false);
             GameManager.Instance.RegisterAnimalsNeeded(-1);
+            GameManager.Instance.RegisterAnimal(-1);
             /*if (AnimalsNeeded == 0)
             {
                 Coroutine = WinAfterDelay();

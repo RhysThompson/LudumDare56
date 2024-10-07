@@ -17,5 +17,6 @@ public class Spring : MonoBehaviour
             collision.gameObject.GetComponent<EntityScript>().Launch(SpringForce);
         }
         Anim.Play("SpringPlate");
+        AudioSystem.Instance.PlaySFX("spring");
     }
 }

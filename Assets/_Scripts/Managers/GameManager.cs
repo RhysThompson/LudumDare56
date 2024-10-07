@@ -154,6 +154,8 @@ public class GameManager : StaticInstance<GameManager> {
 
     public void RegisterAnimalsNeeded(int animalsNeededChange)
     {
+        if (IsGameOver())
+            return;
         AnimalsNeeded += animalsNeededChange;
         if(AnimalsNeeded <= 0)
         {
@@ -163,11 +165,18 @@ public class GameManager : StaticInstance<GameManager> {
 
     public void RegisterAnimal(int num)
     {
+        if (IsGameOver())
+            return;
         AnimalsInLevel += num;
         if (AnimalsNeeded > AnimalsInLevel)
         {
             ChangeState(GameState.Lose);
         }
+    }
+
+    public bool IsGameOver()
+    {
+        return State == GameState.Lose || State == GameState.LoseWaitFade || State == GameState.Win || State == GameState.WinWaitFade;
     }
 }
 
