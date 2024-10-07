@@ -109,5 +109,7 @@ public class EntityScript : MonoBehaviour
             deathParticles.Play();
         GetComponentInChildren<MeshRenderer>().enabled = false;
         GameManager.Instance.RegisterAnimal(-1);
+        MoveSpeed = 0;
+        GetComponent<Collider>().enabled = false;
     }
 }

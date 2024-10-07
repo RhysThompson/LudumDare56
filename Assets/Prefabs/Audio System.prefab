@@ -68,6 +68,12 @@ MonoBehaviour:
       Value: ExampleSong
     - Key: Level
       Value: ExampleSong
+    - Key: Level1-1
+      Value: ExampleSong
+    - Key: Level1-2
+      Value: ExampleSong
+    - Key: Level1-3
+      Value: ExampleSong
 --- !u!1 &3504075122170500486
 GameObject:
   m_ObjectHideFlags: 0
