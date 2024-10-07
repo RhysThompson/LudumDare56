@@ -43,7 +43,6 @@ public class GameManager : StaticInstance<GameManager> {
     // Kick the game off with the first state
     void Start()
     {
-        AnimalsInLevel = GameObject.FindGameObjectsWithTag("animal").Length;
         Fade = GameObject.FindGameObjectWithTag("Fade").GetComponent<FadeScript>();
 
         ChangeState(GameState.Starting);
@@ -159,6 +158,8 @@ public class GameManager : StaticInstance<GameManager> {
         AnimalsNeeded += animalsNeededChange;
         if(AnimalsNeeded <= 0)
         {
+            AnimalsNeeded = 0;
+            AnimalsInLevel = 0;
             ChangeState(GameState.Win);
         }
     }
@@ -168,8 +169,10 @@ public class GameManager : StaticInstance<GameManager> {
         if (IsGameOver())
             return;
         AnimalsInLevel += num;
-        if (AnimalsNeeded > AnimalsInLevel)
+        if (AnimalsNeeded > AnimalsInLevel && num < 0)
         {
+            AnimalsNeeded = 0;
+            AnimalsInLevel = 0;
             ChangeState(GameState.Lose);
         }
     }
