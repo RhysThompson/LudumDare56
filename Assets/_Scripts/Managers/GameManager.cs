@@ -9,12 +9,14 @@ using UnityEngine.SceneManagement;
 [Serializable]
 public enum GameState
 {
-    None = 0,
-    Starting = 1,
-    Paused = 2,
-    Playing = 3,
-    Win = 5,
-    Lose = 6,
+    None,
+    Starting,
+    Paused,
+    Playing,
+    Win,
+    WinWaitFade,
+    Lose,
+    LoseWaitFade,
 }
 /// <summary>
 /// Base for a Game Manager. Mainly features: State machine for switching between game states.
@@ -29,6 +31,9 @@ public class GameManager : StaticInstance<GameManager> {
     public ScoreMenu WinScreen;
     public ScoreMenu LoseScreen;
     public string NextLevel = "";
+    private int AnimalsInLevel;
+    private int AnimalsNeeded;
+    private FadeScript Fade;
     public GameState State { get; private set; }
     /// <summary>
     /// Stops all state changes from the first state to any of the listed states. OnBeforeStateChanged will not be called.
@@ -38,7 +43,30 @@ public class GameManager : StaticInstance<GameManager> {
     // Kick the game off with the first state
     void Start()
     {
+        AnimalsInLevel = GameObject.FindGameObjectsWithTag("animal").Length;
+        Fade = GameObject.FindGameObjectWithTag("Fade").GetComponent<FadeScript>();
+
         ChangeState(GameState.Starting);
+    }
+
+    void Update()
+    {
+        CheckForChangeButtonSFX();
+
+        switch (State)
+        {
+            case GameState.WinWaitFade:
+                if (!Fade.IsFadeComplete())
+                    break;
+                HandleWin();
+                break;
+
+            case GameState.LoseWaitFade:
+                if (!Fade.IsFadeComplete())
+                    break;
+                HandleLose();
+                break;
+        }
     }
 
     public void ChangeState(GameState newState) 
@@ -49,15 +77,24 @@ public class GameManager : StaticInstance<GameManager> {
         OnBeforeStateChanged?.Invoke(newState);
 
         State = newState;
-        switch (newState) {
+        switch (newState) 
+        {
             case GameState.Starting:
                 HandleStarting();
                 break;
             case GameState.Win:
-                HandleWin();
+                Fade.DoFade(0f, 1f, 1f);
+                State = GameState.WinWaitFade;
+                break;
+            case GameState.WinWaitFade:
+                // Handled in Update()
                 break;
             case GameState.Lose:
-                HandleLose();
+                Fade.DoFade(0f, 1f, 1f);
+                State = GameState.LoseWaitFade;
+                break;
+            case GameState.LoseWaitFade:
+                // Handled in Update()
                 break;
             case GameState.Paused:
                 break;
@@ -107,11 +144,29 @@ public class GameManager : StaticInstance<GameManager> {
         //LoseScreen.SetColor(new Color(1, 0.5f, 0.5f, 0.5f));
     }
 
-    private void Update()
+    private void CheckForChangeButtonSFX()
     {
         if (State == GameState.Playing && Input.GetKeyDown(KeyCode.Space))
         {
             AudioSystem.Instance.PlaySFX("changebutton");
+        }
+    }
+
+    public void RegisterAnimalsNeeded(int animalsNeededChange)
+    {
+        AnimalsNeeded += animalsNeededChange;
+        if(AnimalsNeeded <= 0)
+        {
+            ChangeState(GameState.Win);
+        }
+    }
+
+    public void RegisterAnimal(int num)
+    {
+        AnimalsInLevel += num;
+        if (AnimalsNeeded > AnimalsInLevel)
+        {
+            ChangeState(GameState.Lose);
         }
     }
 }

@@ -20,6 +20,7 @@ public class EntityScript : MonoBehaviour
     void Start()
     {
         RB = this.GetComponent<Rigidbody>();
+        GameManager.Instance.RegisterAnimal(1);
     }
 
     // Update is called once per frame
@@ -107,5 +108,6 @@ public class EntityScript : MonoBehaviour
         if(deathParticles.isPlaying == false)
             deathParticles.Play();
         GetComponentInChildren<MeshRenderer>().enabled = false;
+        GameManager.Instance.RegisterAnimal(-1);
     }
 }

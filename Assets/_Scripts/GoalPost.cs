@@ -4,16 +4,17 @@ using UnityEngine;
 [SelectionBase]
 public class GoalPost : MonoBehaviour
 {
-    public static int animalsInLevel = 2;
-    private ParticleSystem particleEffect;
-    private TMPro.TMP_Text numberDisplay;
+    public int AnimalsNeeded = 1;
+    private ParticleSystem ParticleEffect;
+    private TMPro.TMP_Text NumberDisplay;
 
+    //private IEnumerator Coroutine;
     private void Start()
     {
-        animalsInLevel = GameObject.FindGameObjectsWithTag("animal").Length;
-        particleEffect = GetComponentInChildren<ParticleSystem>();
-        numberDisplay = GetComponentInChildren<TMPro.TMP_Text>();
-        numberDisplay.text = animalsInLevel.ToString();
+        ParticleEffect = GetComponentInChildren<ParticleSystem>();
+        NumberDisplay = GetComponentInChildren<TMPro.TMP_Text>();
+        NumberDisplay.text = AnimalsNeeded.ToString();
+        GameManager.Instance.RegisterAnimalsNeeded(AnimalsNeeded);
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -21,18 +22,21 @@ public class GoalPost : MonoBehaviour
         if (collision.gameObject.tag == "animal")
         {
             collision.gameObject.SetActive(false);
-            particleEffect.Play();
-            animalsInLevel--;
-            numberDisplay.text = animalsInLevel.ToString();
-            if (animalsInLevel == 0)
+            GameManager.Instance.RegisterAnimal(-1);
+            ParticleEffect.Play();
+            AnimalsNeeded--;
+            NumberDisplay.text = AnimalsNeeded.ToString();
+            GameManager.Instance.RegisterAnimalsNeeded(-1);
+            /*if (AnimalsNeeded == 0)
             {
-                GameManager.Instance.ChangeState(GameState.Win);
-            }
+                Coroutine = WinAfterDelay();
+                StartCoroutine(Coroutine);
+            }*/
         }
     }
-    private IEnumerator WinAfterDelay()
+    /*private IEnumerator WinAfterDelay()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         GameManager.Instance.ChangeState(GameState.Win);
-    }
+    }*/
 }
