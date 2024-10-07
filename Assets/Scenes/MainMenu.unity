@@ -3261,6 +3261,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2090482523234954986, guid: 86a2dfec772afec46a8227e534c3a45e, type: 3}
   m_PrefabInstance: {fileID: 820841620}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &850014272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 850014274}
+  - component: {fileID: 850014273}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &850014273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850014272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efb1ae7a61b254489a4d92a2d5a7065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winText: 
+  WinScreen: {fileID: 0}
+  LoseScreen: {fileID: 0}
+  NextLevel: 
+  ForbidenStateTransitions:
+    _serializedList:
+    - Key: 5
+      Value: 01000000
+    - Key: 6
+      Value: 01000000
+--- !u!4 &850014274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850014272}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.21262151, y: -0.12673895, z: 0.0149376765}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &877419102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6879,3 +6933,4 @@ SceneRoots:
   - {fileID: 45380185}
   - {fileID: 393263369}
   - {fileID: 641551888}
+  - {fileID: 850014274}
