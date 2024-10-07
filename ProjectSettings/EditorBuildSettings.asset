@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/backup/MainMenu.unity
-    guid: aff9aaf8d4c68984c9a5334437caafd0
+    path: Assets/Scenes/MainMenu.unity
+    guid: ec92bc9bef520034a9f4ce3278e27e0d
   - enabled: 1
     path: Assets/Scenes/Level.unity
     guid: 039de377be33a8e4abd2689564b54e1d
@@ -32,5 +32,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Set1/Level1-4.unity
     guid: 4ef3bbeebf865b5479c98f8e95a337d3
+  - enabled: 1
+    path: Assets/Scenes/SpikeTurtleSet/Level4-1.unity
+    guid: 8b9c361f3fbbc8a488a862052453f7d3
+  - enabled: 1
+    path: Assets/Scenes/SpikeTurtleSet/Level4-2.unity
+    guid: 59147ae037b129d44b9236739da83163
+  - enabled: 1
+    path: Assets/Scenes/SpikeTurtleSet/Level4-3.unity
+    guid: 9dd792f9c560fcd4ebd6174a02c52ffb
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

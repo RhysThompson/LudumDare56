@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Spring : MonoBehaviour
@@ -12,7 +13,7 @@ public class Spring : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "animal")
+        if (collision.gameObject.tag == "animal" && !collision.gameObject.GetComponentsInChildren<Spring>().Contains(this)) //prevent spring turtles from jumping infinitely
         {
             collision.gameObject.GetComponent<EntityScript>().Launch(SpringForce);
         }
