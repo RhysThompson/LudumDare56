@@ -111,5 +111,9 @@ public class EntityScript : MonoBehaviour
         GameManager.Instance.RegisterAnimal(-1);
         MoveSpeed = 0;
         GetComponent<Collider>().enabled = false;
+        foreach (Collider child in GetComponentsInChildren<Collider>())
+        {
+            child.enabled = false;
+        }
     }
 }
