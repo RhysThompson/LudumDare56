@@ -24,7 +24,10 @@ public class GoalPost : MonoBehaviour
             ParticleEffect.Play();
             AnimalsNeeded--;
             if (AnimalsNeeded == 0)
+            {
+                AudioSystem.Instance.PlaySFX("success");
                 NumberDisplay.text = "W";
+            }
             else
                 NumberDisplay.text = AnimalsNeeded.ToString();
             collision.gameObject.SetActive(false);

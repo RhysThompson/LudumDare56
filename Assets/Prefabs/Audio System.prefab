@@ -49,7 +49,7 @@ MonoBehaviour:
   musicSounds:
     _serializedList:
     - Key: ExampleSong
-      Value: {fileID: 8300000, guid: 81a073c32b2377e4d88a16a31d15f298, type: 3}
+      Value: {fileID: 8300000, guid: 96c20986335df27448ecc693963c9b0c, type: 3}
   sfxSounds:
     _serializedList:
     - Key: accept
@@ -62,6 +62,8 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: 5e4118724a803984d9c0f1730cff5785, type: 3}
     - Key: spring
       Value: {fileID: 8300000, guid: 096f2db36d387f149bf83aff2f7cad11, type: 3}
+    - Key: success
+      Value: {fileID: 8300000, guid: 7700f791abe165b49991ad702f8b2e51, type: 3}
   _musicSource: {fileID: 3504075123384052159}
   _soundsSource: {fileID: 3504075122170500488}
   audioMixer: {fileID: 24100000, guid: de446f5b2da753d49a456698598b24ba, type: 2}
@@ -87,6 +89,24 @@ MonoBehaviour:
     - Key: Level2-1
       Value: ExampleSong
     - Key: Level2-2
+      Value: ExampleSong
+    - Key: Level2-3
+      Value: ExampleSong
+    - Key: Level2-4
+      Value: ExampleSong
+    - Key: Level2-5
+      Value: ExampleSong
+    - Key: Level2-6
+      Value: ExampleSong
+    - Key: Level3-1
+      Value: ExampleSong
+    - Key: Level3-2
+      Value: ExampleSong
+    - Key: Level3-3
+      Value: ExampleSong
+    - Key: Level3-4
+      Value: ExampleSong
+    - Key: Level3-5
       Value: ExampleSong
 --- !u!1 &3504075122170500486
 GameObject:
