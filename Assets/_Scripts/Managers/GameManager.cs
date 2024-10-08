@@ -172,6 +172,7 @@ public class GameManager : StaticInstance<GameManager> {
         {
             AnimalsNeeded = 0;
             AnimalsInLevel = 0;
+            AudioSystem.Instance.PlaySFX("fail");
             ChangeState(GameState.Lose);
         }
     }

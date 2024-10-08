@@ -64,6 +64,10 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: 096f2db36d387f149bf83aff2f7cad11, type: 3}
     - Key: success
       Value: {fileID: 8300000, guid: 7700f791abe165b49991ad702f8b2e51, type: 3}
+    - Key: spike
+      Value: {fileID: 8300000, guid: 30442fc050f55354e9155193bb0bc97c, type: 3}
+    - Key: fail
+      Value: {fileID: 8300000, guid: 6e8c296a6ae4e1340a8e9335d6e4db23, type: 3}
   _musicSource: {fileID: 3504075123384052159}
   _soundsSource: {fileID: 3504075122170500488}
   audioMixer: {fileID: 24100000, guid: de446f5b2da753d49a456698598b24ba, type: 2}

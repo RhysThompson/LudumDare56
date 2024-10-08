@@ -10,6 +10,7 @@ public class DeathTrigger : MonoBehaviour
         if(collision.gameObject.tag == "animal" && !collision.gameObject.GetComponentsInChildren<DeathTrigger>().Contains(this)) //prevent spike turtles from killing themselves
         {
             collision.gameObject.GetComponent<EntityScript>().Die();
+            AudioSystem.Instance.PlaySFX("spike");
         }
     }
 }

@@ -7411,7 +7411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7322583294007701428, guid: aebafc103779de6449d77c245d83705c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.67
+      value: 12.8
       objectReference: {fileID: 0}
     - target: {fileID: 7322583294007701428, guid: aebafc103779de6449d77c245d83705c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7451,7 +7451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8612588637792187238, guid: aebafc103779de6449d77c245d83705c, type: 3}
       propertyPath: AnimalsNeeded
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

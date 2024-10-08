@@ -59,6 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Set3/Level3-3.unity
     guid: 140ac065bc4efcd419453f2c1e9816f2
+  - enabled: 1
     path: Assets/Scenes/SpikeTurtleSet/Level4-1.unity
     guid: 8b9c361f3fbbc8a488a862052453f7d3
   - enabled: 1
@@ -67,5 +68,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SpikeTurtleSet/Level4-3.unity
     guid: 9dd792f9c560fcd4ebd6174a02c52ffb
+  - enabled: 1
+    path: Assets/Scenes/SpikeTurtleSet/Level4-4.unity
+    guid: 52d1427dd48813f48a107923934aa57e
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
