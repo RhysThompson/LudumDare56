@@ -19,6 +19,9 @@ public class GoalPost : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        if (AnimalsNeeded <= 0)
+            return;
+
         if (collision.gameObject.tag == "animal")
         {
             ParticleEffect.Play();
