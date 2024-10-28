@@ -3905,7 +3905,7 @@ MonoBehaviour:
   winText: Nice Job!
   WinScreen: {fileID: 0}
   LoseScreen: {fileID: 0}
-  NextLevel: MainMenu
+  NextLevel: Level Select
   ForbidenStateTransitions:
     _serializedList:
     - Key: 5
